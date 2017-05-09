@@ -8,8 +8,8 @@ Chenjun Ling cling@scu.edu
 
 Results
 -------
-# In what order were the integers printed?
-The printed number order is the same as the producer generates, but the corresponding consumer order is random.
+### In what order were the integers printed?
+Answer: The printed number order is the same as the producer generates, but the corresponding consumer order is random.
 ```
 Thread1 0
 Thread0 1
@@ -25,7 +25,6 @@ Thread0 668
 
 Discussion
 ----------
-# Answer the following:
 1. How many of each integer should you see printed?
   Answer: One time printed per integer.
 
