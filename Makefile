@@ -2,9 +2,8 @@ CC=gcc
 IDIR=-I.
 LIBS=-lpthread
 
-all: Main.o CircularBuffer.o
-	$(CC) -o producerconsumer $^ $(LIBS)
-
+prodcon: Main.o CircularBuffer.o
+	$(CC) -o $@ $^ $(LIBS)
 
 CircularBuffer.o: CircularBuffer.c
 	$(CC) -c -o $@ $< $(IDIR)
