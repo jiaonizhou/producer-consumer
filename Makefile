@@ -11,3 +11,6 @@ CircularBuffer.o: CircularBuffer.c
 
 Main.o: Main.c
 	$(CC) -c -o $@ $< $(IDIR)
+
+clean:
+	rm Main.o CircularBuffer.o producerconsumer
