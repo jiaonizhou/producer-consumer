@@ -21,6 +21,7 @@ void initBuffer() {
 
 void addToBuffer(int val) {
     pthread_mutex_lock(&bufferLock);
+    // wait when buffer is full
     while(size >= BUFFER_MAX_LEN) {
         pthread_cond_wait(&full, &bufferLock);
     }
@@ -38,6 +39,7 @@ void addToBuffer(int val) {
 int removeFromBuffer() {
     int val;
     pthread_mutex_lock(&bufferLock);
+    // wait when buffer is empty
     while(size == 0) {
         pthread_cond_wait(&empty, &bufferLock);
     }
@@ -47,10 +49,11 @@ int removeFromBuffer() {
     if (val != -1) {
         size--;
         head++;
-    }
-
-    if (head >= BUFFER_MAX_LEN) {
-        head -= BUFFER_MAX_LEN;
+        if (head >= BUFFER_MAX_LEN) {
+            head -= BUFFER_MAX_LEN;
+        }
+    } else {
+        pthread_cond_signal(&empty);
     }
 
     pthread_cond_signal(&full);
