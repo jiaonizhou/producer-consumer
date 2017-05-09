@@ -27,11 +27,10 @@ Discussion
 ----------
 # Answer the following:
 1. How many of each integer should you see printed?
-  One time printed per integer.
+  Answer: One time printed per integer.
 
 2. In what order should you expect to see them printed? Why?
-  Randomly. Because consumer threads are competing to read the buffer, which order is controlled by the OS, not the code.
+  Answer: Randomly. Because consumer threads are competing to read the buffer, which order is controlled by the OS, not the code.
 
-3. Did your results differ from your answers in (1) and (2)?
-Why or why not?
-  No different.
+3. Did your results differ from your answers in (1) and (2)? Why or why not?
+  Answer: No different.
